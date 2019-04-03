@@ -5,16 +5,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
-;
+import { DetailPage } from './detail.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([{ path: '', component: HomePage }])
+    RouterModule.forChild([{ path: '', component: DetailPage }])
   ],
-  declarations: [HomePage]
+  declarations: [DetailPage]
 })
-export class HomePageModule {}
+export class DetailPageModule {}
