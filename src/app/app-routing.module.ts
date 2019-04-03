@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  // UINavigtion中跳转
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
-  { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' }
+  { path: 'detail', loadChildren: './detail/detail.module#DetailPageModule' },
 ];
 
 @NgModule({

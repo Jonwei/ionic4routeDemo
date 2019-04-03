@@ -14,6 +14,10 @@ export class HomePage implements OnInit {
   }
 
   navigate() {
-    this.router.navigateByUrl('detail');
+    this.router.navigate(['detail']);
+  }
+
+  tabBar() {
+    this.router.navigate(['tabs/detail']);
   }
 }
