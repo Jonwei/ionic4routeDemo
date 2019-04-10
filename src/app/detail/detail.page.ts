@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as echarts from 'echarts';
-import { log } from 'util';
 
 @Component({
   selector: 'app-detail',
@@ -8,6 +7,7 @@ import { log } from 'util';
   styleUrls: ['./detail.page.scss'],
 })
 export class DetailPage implements OnInit {
+  @ViewChild('chart') chartNode: ElementRef;
 
   constructor() { }
 
@@ -15,13 +15,12 @@ export class DetailPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    const container = document.getElementById('chart');
+    const container = this.chartNode.nativeElement;
     this.makeChart(container);
   }
 
   makeChart(container) {
     const ec = echarts as any;
-    console.log(ec.version);
     const chart = ec.init(container);
     chart.setOption({
       series: {

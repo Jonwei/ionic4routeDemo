@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as echarts from 'echarts';
 import 'echarts-liquidfill';
 
@@ -9,6 +9,7 @@ import 'echarts-liquidfill';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  @ViewChild('chart') chartNode: ElementRef;
 
   constructor(private router: Router) { }
 
@@ -17,7 +18,7 @@ export class HomePage implements OnInit {
 
   ionViewDidEnter() {
     const ec = echarts as any;
-    const container = document.getElementById('container');
+    const container = this.chartNode.nativeElement;
 
     const chart = ec.init(container);
     chart.setOption({
